@@ -24,6 +24,8 @@ setup(name='raptus.article.collections',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'archetypes.schemaextender',
+          'raptus.article.core',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
