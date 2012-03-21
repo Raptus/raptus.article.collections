@@ -50,7 +50,7 @@
         <a href=""
            tal:attributes="href item/url;
                            title item/description;"
-           tal:content="item/more_link">
+           tal:content="structure item/more_link">
           Read More&hellip;
         </a>
       </p>

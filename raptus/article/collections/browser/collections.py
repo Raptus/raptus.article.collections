@@ -103,10 +103,13 @@ class Viewlet(ViewletBase):
                          'more': False,
                          'more_link': more_link if more_link else _p(u'read_more', default=u'Read More&hellip;')})
             results = item['obj'].queryCatalog()
-            rl = min(self.results, len(results)) if self.results > 0 else len(results)
+            limit = self.results
+            if item['obj'].getLimitNumber():
+                limit = item['obj'].getItemCount()
+            rl = min(limit, len(results)) if limit > 0 else len(results)
             ri = 0
             for record in results:
-                if self.results > 0 and len(item['results']) == self.results:
+                if limit > 0 and len(item['results']) == limit:
                     item['more'] = self.more
                     break
                 result = {'title': record.Title,
