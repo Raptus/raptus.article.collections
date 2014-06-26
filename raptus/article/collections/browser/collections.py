@@ -115,7 +115,8 @@ class Viewlet(ViewletBase):
                 result = {'title': record.Title,
                           'class': _css_class(ri, rl),
                           'description': record.Description,
-                          'url': record.getURL()}
+                          'url': record.getURL(),
+                          'brain': record, }
                 if self.date:
                     date = getattr(record, self.date, None)
                     if date is not None:

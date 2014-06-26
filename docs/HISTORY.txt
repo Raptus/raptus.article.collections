@@ -1,6 +1,13 @@
 Changelog
 =========
 
+dev
+---
+
+* Add the brain to the result list for collections to allow integrators
+  customizing raptus.article.collections.browser.collections.pt via z3c.jbot
+  to access additional attributes or brain.getObject() [fRiSi]
+
 1.0a1 (2012-03-21)
 ------------------
 
