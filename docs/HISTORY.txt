@@ -1,8 +1,8 @@
 Changelog
 =========
 
-dev
----
+1.0a2 (unreleased)
+------------------
 
 * Add the brain to the result list for collections to allow integrators
   customizing raptus.article.collections.browser.collections.pt via z3c.jbot
