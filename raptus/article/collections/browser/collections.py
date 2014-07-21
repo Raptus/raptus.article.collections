@@ -34,7 +34,7 @@ def _css_class(i, l):
     cls = []
     if i == 0:
         cls.append('first')
-    if i == l-1:
+    if i == l - 1:
         cls.append('last')
     if i % 2 == 0:
         cls.append('odd')
@@ -115,11 +115,17 @@ class Viewlet(ViewletBase):
                 result = {'title': record.Title,
                           'class': _css_class(ri, rl),
                           'description': record.Description,
-                          'url': record.getURL()}
+                          'url': record.getURL(),
+                          'brain': record, }
                 if self.date:
                     date = getattr(record, self.date, None)
                     if date is not None:
-                        result['date'] = plone.toLocalizedTime(date)
+                        try:
+                            result['date'] = plone.toLocalizedTime(date)
+                        except ValueError:
+                            # not properly initialized fields might have values
+                            # before 999 that can't be handled
+                            pass
                 item['results'].append(result)
                 ri += 1
             if len(item['results']):
